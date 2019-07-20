@@ -8,7 +8,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 100;
   }
 
   body.fontLoaded {
@@ -20,11 +21,25 @@ const GlobalStyle = createGlobalStyle`
     min-height: 100%;
     min-width: 100%;
   }
+  
+  b {
+    font-weight: 700;
+  }
 
   p,
   label {
     font-family: Georgia, Times, 'Times New Roman', serif;
     line-height: 1.5em;
+  }
+
+  h1, h2, h3 {
+    margin: 0;
+    font-weight: 100;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
   }
 `;
 

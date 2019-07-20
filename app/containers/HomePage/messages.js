@@ -7,9 +7,19 @@ import { defineMessages } from 'react-intl';
 
 export const scope = 'app.containers.HomePage';
 
+/*
+const MainText = styled.span`
+  letter-spacing: 8px;
+`;
+*/
+
 export default defineMessages({
-  header: {
-    id: `${scope}.header`,
-    defaultMessage: 'This is the HomePage container!',
+  motto: {
+    id: `${scope}.motto`,
+    defaultMessage: `ideate / iterate / innovate`,
+  },
+  call: {
+    id: `${scope}.call`,
+    defaultMessage: 'join the movement.',
   },
 });
