@@ -1,6 +1,6 @@
 # StartupUW Website
 
-Built upon this [react-boilerplate].(https://github.com/react-boilerplate/react-boilerplate)
+Built upon this [react-boilerplate](https://github.com/react-boilerplate/react-boilerplate)
 
 By Aaron Chen and Connor Carlson
 
