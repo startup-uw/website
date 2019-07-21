@@ -6,7 +6,7 @@ By Aaron Chen and Connor Carlson
 
 To begin, run: 
 
-`npm start`
+`npm install` then `npm start` 
     
 To generate components, containers, and more:
 
