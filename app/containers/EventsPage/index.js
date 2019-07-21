@@ -6,7 +6,7 @@ import EventCard from '../../components/events/EventCard/Loadable';
 
 const EventView = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
 `;
 

@@ -15,6 +15,7 @@ const Card = styled.div`
 const ProfileImage = styled.img`
   width: 250px;
   height: 250px;
+  border-radius: 5px;
 `;
 
 const Name = styled.h3`

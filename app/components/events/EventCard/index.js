@@ -19,8 +19,8 @@ const Card = styled.div`
 `;
 
 const Image = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   padding-right: 10px;
 `;
 
@@ -29,17 +29,25 @@ const Body = styled.div`
   flex-direction: column;
 `;
 
+const Description = styled.p`
+  font-size: 1.25em;
+`;
+
+const Title = styled.h1`
+  font-weight: 700;
+`;
+
 function EventCard() {
   return (
     <Card>
       <Image />
       <Body>
-        <h1>
+        <Title>
           <FormattedMessage {...messages.title} />
-        </h1>
-        <p>
+        </Title>
+        <Description>
           <FormattedMessage {...messages.body} />
-        </p>
+        </Description>
       </Body>
     </Card>
   );
