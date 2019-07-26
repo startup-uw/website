@@ -13,8 +13,12 @@ export default defineMessages({
     id: `${scope}.title`,
     defaultMessage: 'This is the event title',
   },
-  body: {
-    id: `${scope}.title`,
-    defaultMessage: 'This is the event body',
+  details: {
+    id: `${scope}.details`,
+    defaultMessage: 'Friday, July 6th',
+  },
+  desc: {
+    id: `${scope}.desc`,
+    defaultMessage: 'This is the description',
   },
 });

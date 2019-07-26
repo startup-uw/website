@@ -5,6 +5,7 @@ import Tabletop from 'tabletop';
 import Title from '../../components/page/Title';
 import ProfileCard from '../../components/team/ProfileCard';
 import { Wrapper } from '../../components/page/Wrapper';
+import Config from '../../config';
 
 const ProfileView = styled.div`
   display: flex;
@@ -18,8 +19,7 @@ export default function TeamPage() {
 
   useEffect(() => {
     Tabletop.init({
-      key:
-        'https://docs.google.com/spreadsheets/d/11C1W1L8kcAJ7OuP8h3NpHRsWJPUDjgrTYKcPBFU5lp8/edit?usp=sharing',
+      key: Config.TEAM_URL,
       callback: googleData => {
         setStatus(true);
         setData(googleData);
@@ -38,14 +38,16 @@ export default function TeamPage() {
             key={Date.now()}
             easing="easeInOutBack"
             duration={1000}
-            delay={(el, i) => i * 200}
+            delay={(el, i) => i * 250}
           >
             {data.map(element => (
-              <ProfileCard
-                key={element.Name}
-                name={element.Name}
-                position={element.Position}
-              />
+              <div key={element.Name}>
+                <ProfileCard
+                  name={element.Name}
+                  position={element.Position}
+                  picture={element.Picture}
+                />
+              </div>
             ))}
           </Anime>
         ) : (

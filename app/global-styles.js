@@ -30,6 +30,7 @@ const GlobalStyle = createGlobalStyle`
   label {
     font-family: 'Lato', sans-serif;
     line-height: 1.5em;
+    margin: 0;
   }
 
   h1, h2, h3 {

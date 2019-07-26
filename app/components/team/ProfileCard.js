@@ -19,9 +19,9 @@ const ProfileImage = styled.img`
 `;
 
 const Name = styled.h3`
-  color: black;
+  color: #858585;
   padding: 10px;
-  font-weight: 700;
+  font-weight: 400;
   text-transform: uppercase;
 `;
 
@@ -33,7 +33,7 @@ const Position = styled.h3`
 export default function ProfileCard(props) {
   return (
     <Card>
-      <ProfileImage />
+      <ProfileImage src={props.picture} />
       <Name> {props.name} </Name>
       <Position> {props.position} </Position>
     </Card>
@@ -43,4 +43,5 @@ export default function ProfileCard(props) {
 ProfileCard.propTypes = {
   name: PropTypes.string.isRequired,
   position: PropTypes.string.isRequired,
+  picture: PropTypes.string.isRequired,
 };

@@ -29,8 +29,14 @@ const Body = styled.div`
   flex-direction: column;
 `;
 
-const Description = styled.p`
+const Details = styled.p`
   font-size: 1.25em;
+  color: #ccc;
+  font-weight: 400;
+`;
+
+const Description = styled.p`
+  font-size: 1em;
 `;
 
 const Title = styled.h1`
@@ -45,9 +51,14 @@ function EventCard() {
         <Title>
           <FormattedMessage {...messages.title} />
         </Title>
-        <Description>
-          <FormattedMessage {...messages.body} />
-        </Description>
+        <div>
+          <Details>
+            <FormattedMessage {...messages.details} />
+          </Details>
+          <Description>
+            <FormattedMessage {...messages.desc} />
+          </Description>
+        </div>
       </Body>
     </Card>
   );
