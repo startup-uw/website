@@ -11,7 +11,7 @@ const ProfileView = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  @media only screen and (max-width: 525px) {
+  @media only screen and (max-width: 700px) {
     justify-content: center;
   }
 `;

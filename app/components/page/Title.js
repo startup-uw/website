@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   display: inline-block;
-  @media only screen and (min-width: 526px) {
+  @media only screen and (min-width: 701px) {
     padding-left: 25px;
   }
 `;
@@ -20,13 +20,10 @@ const Header = styled.h1`
   @media only screen and (max-width: 700px) {
     font-size: 2.5em;
   }
-  @media only screen and (max-width: 425px) {
-    font-size: 1.5em;
-  }
 `;
 
 const Wrapper = styled.div`
-  @media only screen and (max-width: 525px) {
+  @media only screen and (max-width: 700px) {
     display: flex;
     justify-content: center;
   }

@@ -9,6 +9,7 @@
 
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import styled from 'styled-components';
 
 import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
@@ -19,9 +20,16 @@ import GlobalStyle from '../../global-styles';
 
 import NavigationBar from '../../components/nav/NavigationBar';
 
+const Main = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: white;
+`;
+
 export default function App() {
   return (
-    <div>
+    <Main>
       <NavigationBar />
       <Switch>
         <Route exact path="/" component={HomePage} />
@@ -30,6 +38,6 @@ export default function App() {
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />
-    </div>
+    </Main>
   );
 }

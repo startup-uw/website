@@ -21,7 +21,7 @@ const GlobalStyle = createGlobalStyle`
     min-height: 100%;
     min-width: 100%;
   }
-  
+
   b {
     font-weight: 700;
   }
