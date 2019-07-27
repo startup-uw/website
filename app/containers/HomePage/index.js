@@ -48,7 +48,9 @@ export default function HomePage() {
     <Anime opacity={[0, 1]} easing="easeInOutBack" duration={2000}>
       <BodyWrapper>
         <Headline>
-          <Motto>hello</Motto>
+          <Motto>
+            <FormattedMessage {...messages.motto} />
+          </Motto>
           <Call>
             <FormattedMessage {...messages.call} />
           </Call>

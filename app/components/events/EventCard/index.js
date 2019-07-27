@@ -19,7 +19,7 @@ const Card = styled.div`
 `;
 
 const Image = styled.img`
-  width: 200px;
+  min-width: 200px;
   height: 200px;
   padding-right: 10px;
 `;
