@@ -17,6 +17,8 @@ const Name = styled.a`
   }
   :hover {
     color: green;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
   }
 `;
 

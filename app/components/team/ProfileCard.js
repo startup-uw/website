@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const Card = styled.div`
-  padding: 25px;
+  padding: 0px 25px 50px 25px;
   display: flex;
   flex-direction: column;
   align-items: center;

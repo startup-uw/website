@@ -17,14 +17,12 @@ const ProfileView = styled.div`
 `;
 
 export default function TeamPage() {
-  const [loaded, setStatus] = useState(false);
   const [data, setData] = useState([]);
 
   useEffect(() => {
     Tabletop.init({
       key: Config.TEAM_URL,
       callback: googleData => {
-        setStatus(true);
         setData(googleData);
       },
       simpleSheet: true,
@@ -35,7 +33,7 @@ export default function TeamPage() {
     <Wrapper>
       <Title text="THE TEAM" />
       <ProfileView>
-        {loaded && data ? (
+        {data.length > 0 ? (
           <Anime
             opacity={[0, 1]}
             key={Date.now()}

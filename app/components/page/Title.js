@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   display: inline-block;
+  padding-bottom: 50px;
   @media only screen and (min-width: 701px) {
     padding-left: 25px;
   }

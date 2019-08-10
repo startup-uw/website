@@ -11,14 +11,14 @@ export const scope = 'app.components.EventCard';
 export default defineMessages({
   title: {
     id: `${scope}.title`,
-    defaultMessage: 'This is the event title',
+    defaultMessage: '{title}',
   },
   details: {
     id: `${scope}.details`,
-    defaultMessage: 'Friday, July 6th',
+    defaultMessage: '{date}',
   },
   desc: {
     id: `${scope}.desc`,
-    defaultMessage: 'This is the description',
+    defaultMessage: '{description}',
   },
 });
