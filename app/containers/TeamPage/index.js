@@ -55,27 +55,6 @@ export default function TeamPage() {
           <h1>...</h1>
         )}
       </ProfileView>
-      {/* }
-      <Anime
-        opacity={[0, 1]}
-        key={Date.now()}
-        easing="easeInOutBack"
-        duration={1000}
-        delay={(el, i) => i * 200}
-      >
-        <ProfileView>
-          {loaded &&
-            data &&
-            data.map(element => (
-              <ProfileCard
-                key={element.Name}
-                name={element.Name}
-                position={element.Position}
-              />
-            ))}
-        </ProfileView>
-      </Anime>
-            */}
     </Wrapper>
   );
 }

@@ -44,6 +44,7 @@ export default function EventsPage() {
                   title={element.Title}
                   description={element.Description}
                   date={element.Date}
+                  location={element.Location}
                 />
               </div>
             ))}

@@ -21,4 +21,8 @@ export default defineMessages({
     id: `${scope}.desc`,
     defaultMessage: '{description}',
   },
+  location: {
+    id: `${scope}.location`,
+    defaultMessage: '{location}',
+  },
 });

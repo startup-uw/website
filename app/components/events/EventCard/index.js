@@ -14,7 +14,7 @@ import messages from './messages';
 const Card = styled.div`
   color: black;
   display: flex;
-  padding: 0px 100px 50px 25px;
+  padding: 0px 25px 50px 25px;
   flex-direction: row;
   @media only screen and (max-width: 700px) {
     flex-direction: column;
@@ -29,7 +29,7 @@ const Image = styled.img`
 
   @media only screen and (max-width: 700px) {
     width: 100%;
-    padding: 15px 30px 15px 30px;
+    padding: 15px 60px 30px 60px;
   }
 `;
 
@@ -40,16 +40,18 @@ const Body = styled.div`
 `;
 
 const Details = styled.p`
-  font-size: 1.25em;
-  color: #ccc;
+  font-size: 1.1em;
+  color: #858585;
   font-weight: 400;
+  display: flex;
+  flex-direction: row;
   @media only screen and (max-width: 525px) {
     font-size: 1em;
   }
 `;
 
 const Description = styled.p`
-  font-size: 1em;
+  font-size: 0.9em;
   font-weight: 500;
 `;
 
@@ -59,6 +61,9 @@ const Title = styled.h1`
   @media only screen and (max-width: 525px) {
     font-size: 1.15em;
   }
+`;
+const Filler = styled.span`
+  flex: 1 1 auto;
 `;
 
 function EventCard(props) {
@@ -78,6 +83,11 @@ function EventCard(props) {
               {...messages.details}
               values={{ date: props.date }}
             />
+            <Filler />
+            <FormattedMessage
+              {...messages.location}
+              values={{ location: props.location }}
+            />
           </Details>
           <Description>
             <FormattedMessage
@@ -95,6 +105,7 @@ EventCard.propTypes = {
   title: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
 };
 
 export default memo(EventCard);

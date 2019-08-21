@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   padding: 30px;
-  @media only screen and (min-width: 700px) {
+  @media only screen and (min-width: 701px) {
     padding-left: 100px;
   }
 `;
