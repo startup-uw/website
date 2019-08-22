@@ -12,6 +12,15 @@ To generate components, containers, and more:
 
 `npm run generate`
 
+## Todo
+- Homepage responsiveness and design finish
+- Contact page
+- Overall polish (animations)
+- 404 page
+- Social media icons and links
+- Gather all team pictures
+
+
 
     
 

@@ -23,6 +23,7 @@ const Name = styled.h3`
   padding: 10px;
   font-weight: 400;
   text-transform: uppercase;
+  letter-spacing: 1px;
 `;
 
 const Position = styled.h3`
