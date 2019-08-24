@@ -17,7 +17,7 @@ const Underline = styled.div`
 `;
 
 const Header = styled.h1`
-  font-size: 3em;
+  font-size: 4em;
   @media only screen and (max-width: 700px) {
     font-size: 2.5em;
   }

@@ -15,6 +15,7 @@ import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import TeamPage from 'containers/TeamPage/Loadable';
 import EventsPage from 'containers/EventsPage/Loadable';
+import ContactPage from 'containers/ContactPage/index';
 
 import GlobalStyle from '../../global-styles';
 
@@ -35,6 +36,7 @@ export default function App() {
         <Route exact path="/" component={HomePage} />
         <Route exact path="/team" component={TeamPage} />
         <Route exact path="/events" component={EventsPage} />
+        <Route exact path="/contact" component={ContactPage} />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />

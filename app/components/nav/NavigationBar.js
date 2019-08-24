@@ -16,7 +16,7 @@ const NavWrapper = styled.div`
 
 const LinearSelection = styled.span`
   padding-right: 20px;
-  @media only screen and (max-width: 525px) {
+  @media only screen and (max-width: 610px) {
     display: none;
   }
 `;
@@ -24,7 +24,7 @@ const LinearSelection = styled.span`
 const DropdownSelection = styled.span`
   padding-right: 20px;
   display: none;
-  @media only screen and (max-width: 525px) {
+  @media only screen and (max-width: 610px) {
     display: flex;
   }
 `;
@@ -63,6 +63,7 @@ export default function NavigationBar() {
         <LinearSelection>
           <NavItem name="team" route="/team" />
           <NavItem name="events" route="/events" />
+          <NavItem name="contact" route="/contact" />
         </LinearSelection>
         <DropdownSelection>
           <HamburgerMenu onClick={() => toggleMenu(!expanded)}>
