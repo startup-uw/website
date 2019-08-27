@@ -12,6 +12,7 @@ import { FormattedMessage } from 'react-intl';
 import { compose } from 'redux';
 import { Wrapper } from '../../components/page/Wrapper';
 import Title from '../../components/page/Title';
+import ContactForm from '../../components/Contact/index';
 
 import messages from './messages';
 
@@ -20,6 +21,7 @@ const Welcome = styled.div`
   color: black;
   padding-bottom: 20px;
   font-weight: bold;
+  line-height: 1.5;
 `;
 
 const Action = styled.div`
@@ -36,30 +38,55 @@ const Separator = styled.p`
 
 const Body = styled.div`
   padding-left: 25px;
-  display: flex;
-  flex-direction: row;
-  @media only screen and (max-width: 700px) {
-    flex-direction: column;
-  }
+`;
+
+const Link = styled.a`
+  color: #43c7f2;
+  display: contents;
+  font-weight: 300;
+`;
+
+const Section = styled.section`
+  margin-bottom: 200px;
 `;
 
 export function ContactPage() {
   return (
     <Wrapper>
-      <Title text="CONTACT US" />
+      <Title text="GET IN TOUCH" />
       <Body>
-        <div>
+        <Section>
           <Welcome>
-            <FormattedMessage {...messages.welcome} />
+            <FormattedMessage
+              {...messages.welcome}
+              values={{
+                br: <br />,
+              }}
+            />
           </Welcome>
           <Action>
-            <FormattedMessage {...messages.facebook} />
+            <FormattedMessage
+              {...messages.facebook}
+              values={{
+                fb: msg => (
+                  <Link href="https://www.facebook.com/StartupUW/">{msg}</Link>
+                ),
+              }}
+            />
             <Separator>
               <b>OR</b>
             </Separator>
-            <FormattedMessage {...messages.mail} />
+            <FormattedMessage
+              {...messages.mail}
+              values={{
+                email: msg => <Link href="mailto:startup@uw.edu"> {msg} </Link>,
+              }}
+            />
           </Action>
-        </div>
+        </Section>
+        <Section>
+          <ContactForm />
+        </Section>
       </Body>
     </Wrapper>
   );
