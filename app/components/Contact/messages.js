@@ -11,18 +11,18 @@ export const scope = 'app.components.ContactForm';
 export default defineMessages({
   message: {
     id: `${scope}.message`,
-    defaultMessage: 'Message:',
+    defaultMessage: 'Message',
   },
   name: {
     id: `${scope}.name`,
-    defaultMessage: 'Name:',
+    defaultMessage: 'Name',
   },
   email: {
     id: `${scope}.email`,
-    defaultMessage: 'Email: ',
+    defaultMessage: 'Email',
   },
   title: {
     id: `${scope}.title`,
-    defaultMessage: 'Contact',
+    defaultMessage: 'Connect with us now.',
   },
 });
