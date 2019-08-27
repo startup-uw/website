@@ -15,6 +15,7 @@ export default function NavDropdown() {
     <Dropdown>
       <NavItem name="team" route="/team" />
       <NavItem name="events" route="/events" />
+      <NavItem name="contact" route="/contact" />
     </Dropdown>
   );
 }

@@ -35,8 +35,16 @@ const Headline = styled.div`
 
 const Motto = styled.h1`
   letter-spacing: 7px;
-  font-size: 3.25em;
   margin-bottom: 25px;
+  @media only screen and (min-width: 750px) {
+    font-size: 3.25em;
+  }
+  @media only screen and (max-width: 749px) and (min-width: 600px) {
+    font-size: 2.5em;
+  }
+  @media only screen and (max-width: 599px) {
+    font-size: 1.5em;
+  }
 `;
 
 const Call = styled.h1`
