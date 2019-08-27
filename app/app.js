@@ -36,6 +36,10 @@ import configureStore from './configureStore';
 // Import i18n messages
 import { translationMessages } from './i18n';
 
+const path = (/#!(\/.*)$/.exec(window.location.hash) || [])[1];
+if (path) {
+  history.replace(path);
+}
 // Create redux store with history
 const initialState = {};
 const store = configureStore(initialState, history);
