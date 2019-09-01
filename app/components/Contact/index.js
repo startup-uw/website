@@ -15,14 +15,26 @@ const Body = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: row;
+  @media only screen and (max-width: 900px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const Form = styled.form`
   padding: 10px;
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 40%;
   margin-right: 50px;
+  @media only screen and (max-width: 900px) {
+    width: 70%;
+    margin-right: 0px;
+  }
+  @media only screen and (max-width: 650px) {
+    width: 90%;
+    margin-right: 0px;
+  }
 `;
 
 const Row = styled.div`

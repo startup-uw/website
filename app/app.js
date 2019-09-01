@@ -35,6 +35,8 @@ import configureStore from './configureStore';
 // Import i18n messages
 import { translationMessages } from './i18n';
 
+import Firebase, { FirebaseContext } from './firebase/Module';
+
 // Create redux store with history
 const initialState = {};
 const store = configureStore(initialState, history);
@@ -45,7 +47,9 @@ const render = messages => {
     <Provider store={store}>
       <LanguageProvider messages={messages}>
         <ConnectedRouter history={history}>
-          <App />
+          <FirebaseContext.Provider value={new Firebase()}>
+            <App />
+          </FirebaseContext.Provider>
         </ConnectedRouter>
       </LanguageProvider>
     </Provider>,
