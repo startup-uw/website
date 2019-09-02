@@ -25,7 +25,6 @@ import LanguageProvider from 'containers/LanguageProvider';
 // Load the favicon and the .htaccess file
 /* eslint-disable import/no-unresolved, import/extensions */
 import '!file-loader?name=[name].[ext]!./images/favicon.ico';
-import '!file-loader?name=[name].[ext]!./images/star.svg';
 import '!file-loader?name=[name].[ext]!./images/cloud.svg';
 
 import 'file-loader?name=.htaccess!./.htaccess';
@@ -36,10 +35,13 @@ import configureStore from './configureStore';
 // Import i18n messages
 import { translationMessages } from './i18n';
 
+import Firebase, { FirebaseContext } from './firebase/Module';
+
 const path = (/#!(\/.*)$/.exec(window.location.hash) || [])[1];
 if (path) {
   history.replace(path);
 }
+
 // Create redux store with history
 const initialState = {};
 const store = configureStore(initialState, history);
@@ -50,7 +52,9 @@ const render = messages => {
     <Provider store={store}>
       <LanguageProvider messages={messages}>
         <ConnectedRouter history={history}>
-          <App />
+          <FirebaseContext.Provider value={new Firebase()}>
+            <App />
+          </FirebaseContext.Provider>
         </ConnectedRouter>
       </LanguageProvider>
     </Provider>,

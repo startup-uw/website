@@ -12,6 +12,7 @@ import { FormattedMessage } from 'react-intl';
 import { compose } from 'redux';
 import { Wrapper } from '../../components/page/Wrapper';
 import Title from '../../components/page/Title';
+import ContactForm from '../../components/Contact/index';
 
 import messages from './messages';
 
@@ -20,6 +21,7 @@ const Welcome = styled.div`
   color: black;
   padding-bottom: 20px;
   font-weight: bold;
+  line-height: 1.5;
 `;
 
 const Action = styled.div`
@@ -36,30 +38,79 @@ const Separator = styled.p`
 
 const Body = styled.div`
   padding-left: 25px;
+  @media only screen and (max-width: 650px) {
+    padding-left: 0px;
+  }
+`;
+
+const Link = styled.a`
+  margin-left: 4px;
+  color: black;
+  background-color: white;
+  font-weight: 300;
+  transition: background-color 0.5s;
+  padding: 5px 5px 5px 3px;
+  border-radius: 3px;
+  :hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+`;
+
+const Section = styled.section`
+  margin-bottom: 200px;
+`;
+
+const Option = styled.div`
   display: flex;
   flex-direction: row;
-  @media only screen and (max-width: 700px) {
-    flex-direction: column;
-  }
+  align-items: center;
 `;
 
 export function ContactPage() {
   return (
     <Wrapper>
-      <Title text="CONTACT US" />
+      <Title text="GET IN TOUCH" />
       <Body>
-        <div>
+        <Section>
           <Welcome>
-            <FormattedMessage {...messages.welcome} />
+            <FormattedMessage
+              {...messages.welcome}
+              values={{
+                br: <br />,
+              }}
+            />
           </Welcome>
           <Action>
-            <FormattedMessage {...messages.facebook} />
+            <Option>
+              <FormattedMessage
+                {...messages.facebook}
+                values={{
+                  fb: msg => (
+                    <Link href="https://www.facebook.com/StartupUW/">
+                      {msg}
+                    </Link>
+                  ),
+                }}
+              />
+            </Option>
             <Separator>
               <b>OR</b>
             </Separator>
-            <FormattedMessage {...messages.mail} />
+            <Option>
+              <FormattedMessage
+                {...messages.mail}
+                values={{
+                  email: msg => (
+                    <Link href="mailto:startup@uw.edu"> {msg} </Link>
+                  ),
+                }}
+              />
+            </Option>
           </Action>
-        </div>
+        </Section>
+        <Section>
+          <ContactForm />
+        </Section>
       </Body>
     </Wrapper>
   );

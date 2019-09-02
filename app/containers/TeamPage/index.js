@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Anime from 'react-anime';
 import styled from 'styled-components';
-import Tabletop from 'tabletop';
+import PropTypes from 'prop-types';
 import Title from '../../components/page/Title';
 import ProfileCard from '../../components/team/ProfileCard';
 import { Wrapper } from '../../components/page/Wrapper';
-import Config from '../../config';
+import { withFirebase } from '../../firebase/Module';
 
 const ProfileView = styled.div`
   display: flex;
@@ -16,17 +16,15 @@ const ProfileView = styled.div`
   }
 `;
 
-export default function TeamPage() {
+function TeamPage(props) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    Tabletop.init({
-      key: Config.TEAM_URL,
-      callback: googleData => {
-        setData(googleData);
-      },
-      simpleSheet: true,
-    });
+    async function fetch() {
+      const result = await props.firebase.getTeamMembers().then(d => d.docs);
+      setData(result);
+    }
+    fetch();
   }, []);
 
   return (
@@ -42,11 +40,11 @@ export default function TeamPage() {
             delay={(el, i) => i * 250}
           >
             {data.map(element => (
-              <div key={element.Name}>
+              <div key={element.data().name}>
                 <ProfileCard
-                  name={element.Name}
-                  position={element.Position}
-                  picture={element.Picture}
+                  name={element.data().name}
+                  position={element.data().position}
+                  picture={element.data().photo}
                 />
               </div>
             ))}
@@ -58,3 +56,9 @@ export default function TeamPage() {
     </Wrapper>
   );
 }
+
+TeamPage.propTypes = {
+  firebase: PropTypes.object.isRequired,
+};
+
+export default withFirebase(TeamPage);

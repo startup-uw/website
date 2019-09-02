@@ -13,8 +13,8 @@ const Card = styled.div`
 // TODO: add media queries to adjust card size and font
 
 const ProfileImage = styled.img`
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   border-radius: 5px;
 `;
 
@@ -29,6 +29,7 @@ const Name = styled.h3`
 const Position = styled.h3`
   color: black;
   font-style: italic;
+  font-size: 1.1em;
 `;
 
 export default function ProfileCard(props) {
