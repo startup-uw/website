@@ -37,6 +37,11 @@ import { translationMessages } from './i18n';
 
 import Firebase, { FirebaseContext } from './firebase/Module';
 
+const path = (/#!(\/.*)$/.exec(window.location.hash) || [])[1];
+if (path) {
+  history.replace(path);
+}
+
 // Create redux store with history
 const initialState = {};
 const store = configureStore(initialState, history);
