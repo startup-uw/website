@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import styled from 'styled-components';
 
-import logo from '../../images/circle-logo.svg';
+import logo from '../../../images/circle-logo.svg';
 
 const Title = styled.h1`
   font-size: 1.5em;

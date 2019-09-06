@@ -19,7 +19,7 @@ import messages from './messages';
 const Welcome = styled.div`
   font-size: 1.5em;
   color: black;
-  padding-bottom: 20px;
+  margin-bottom: 75px;
   font-weight: bold;
   line-height: 1.5;
 `;
@@ -54,6 +54,10 @@ const Link = styled.a`
   :hover {
     background-color: rgba(0, 0, 0, 0.05);
   }
+  @media only screen and (max-width: 680px) {
+    margin-top: 2px;
+    padding: 1px 1px 1px 1px;
+  }
 `;
 
 const Section = styled.section`
@@ -64,6 +68,10 @@ const Option = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  @media only screen and (max-width: 650px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export function ContactPage() {

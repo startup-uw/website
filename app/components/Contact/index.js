@@ -5,7 +5,6 @@
  */
 
 import React from 'react';
-// import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { FormattedMessage } from 'react-intl';
@@ -35,6 +34,7 @@ const Form = styled.form`
     width: 90%;
     margin-right: 0px;
   }
+  max-width: 625px;
 `;
 
 const Row = styled.div`
