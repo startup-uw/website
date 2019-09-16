@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import Tabletop from 'tabletop';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Anime from 'react-anime';
+import { withFirebase } from 'firebase/Module';
+import Moment from 'moment';
 import { Wrapper } from '../../components/page/Wrapper';
 import Title from '../../components/page/Title';
 import EventCard from '../../components/events/EventCard/Loadable';
-import Config from '../../config';
 
 const EventList = styled.div`
   display: flex;
@@ -13,17 +14,20 @@ const EventList = styled.div`
   flex-wrap: wrap;
 `;
 
-export default function EventsPage() {
+function EventsPage(props) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    Tabletop.init({
-      key: Config.EVENTS_URL,
-      callback: d => {
-        setData(d);
-      },
-      simpleSheet: true,
-    });
+    async function fetch() {
+      const result = await props.firebase.getEvents().then(d => d.docs);
+      result.sort(
+        (a, b) =>
+          Moment(b, 'MM/DD/YY').valueOf() - Moment(a, 'MM/DD/YY').valueOf(),
+      );
+      result.map(d => console.log(d.data()));
+      setData(result);
+    }
+    fetch();
   }, []);
 
   return (
@@ -41,10 +45,11 @@ export default function EventsPage() {
             {data.map(element => (
               <div key={element}>
                 <EventCard
-                  title={element.Title}
-                  description={element.Description}
-                  date={element.Date}
-                  location={element.Location}
+                  title={element.data().title}
+                  description={element.data().description}
+                  date={element.data().date}
+                  location={element.data().location}
+                  time={element.data().time}
                 />
               </div>
             ))}
@@ -56,3 +61,9 @@ export default function EventsPage() {
     </Wrapper>
   );
 }
+
+EventsPage.propTypes = {
+  firebase: PropTypes.object.isRequired,
+};
+
+export default withFirebase(EventsPage);

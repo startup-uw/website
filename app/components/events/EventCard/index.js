@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { FormattedMessage } from 'react-intl';
+import Moment from 'moment';
 import messages from './messages';
 
 const Card = styled.div`
@@ -58,6 +59,7 @@ const Description = styled.p`
 const Title = styled.h1`
   font-weight: 700;
   font-size: 1.5em;
+  margin-bottom: 5px;
   @media only screen and (max-width: 525px) {
     font-size: 1.15em;
   }
@@ -65,6 +67,10 @@ const Title = styled.h1`
 const Filler = styled.span`
   flex: 1 1 auto;
 `;
+
+function formatDate(date) {
+  return Moment(date).format('dddd, MMMM Do YYYY');
+}
 
 function EventCard(props) {
   return (
@@ -79,10 +85,7 @@ function EventCard(props) {
         </Title>
         <div>
           <Details>
-            <FormattedMessage
-              {...messages.details}
-              values={{ date: props.date }}
-            />
+            {formatDate(props.date)}
             <Filler />
             <FormattedMessage
               {...messages.location}
@@ -90,6 +93,7 @@ function EventCard(props) {
             />
           </Details>
           <Description>
+            <div> {props.time}</div>
             <FormattedMessage
               {...messages.desc}
               values={{ description: props.description }}
@@ -103,6 +107,7 @@ function EventCard(props) {
 
 EventCard.propTypes = {
   title: PropTypes.string.isRequired,
+  time: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,

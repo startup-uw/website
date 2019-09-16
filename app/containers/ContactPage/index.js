@@ -5,6 +5,7 @@
  */
 
 import React, { memo } from 'react';
+import Anime from 'react-anime';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
@@ -13,6 +14,7 @@ import { compose } from 'redux';
 import { Wrapper } from '../../components/page/Wrapper';
 import Title from '../../components/page/Title';
 import ContactForm from '../../components/Contact/index';
+import { Filler } from '../../components/page/Filler';
 
 import messages from './messages';
 
@@ -37,7 +39,7 @@ const Separator = styled.p`
 `;
 
 const Body = styled.div`
-  padding-left: 25px;
+  padding-left: 20px;
   @media only screen and (max-width: 650px) {
     padding-left: 0px;
   }
@@ -74,47 +76,76 @@ const Option = styled.div`
   }
 `;
 
+const Horizontal = styled.div`
+  display: flex;
+  flex-direction: row;
+  @media only screen and (max-width: 1100px) {
+    flex-direction: column-reverse;
+  }
+  @media only screen and (min-width: 1101px) {
+    flex-direction: row;
+  }
+`;
+
+const Image = styled.img`
+  width: 45%;
+  max-width: 550px;
+  min-width: 300px;
+  @media only screen and (max-width: 1100px) {
+    width: 450px;
+    margin-bottom: 100px;
+  }
+`;
+
 export function ContactPage() {
   return (
     <Wrapper>
       <Title text="GET IN TOUCH" />
       <Body>
         <Section>
-          <Welcome>
-            <FormattedMessage
-              {...messages.welcome}
-              values={{
-                br: <br />,
-              }}
-            />
-          </Welcome>
-          <Action>
-            <Option>
-              <FormattedMessage
-                {...messages.facebook}
-                values={{
-                  fb: msg => (
-                    <Link href="https://www.facebook.com/StartupUW/">
-                      {msg}
-                    </Link>
-                  ),
-                }}
-              />
-            </Option>
-            <Separator>
-              <b>OR</b>
-            </Separator>
-            <Option>
-              <FormattedMessage
-                {...messages.mail}
-                values={{
-                  email: msg => (
-                    <Link href="mailto:startup@uw.edu"> {msg} </Link>
-                  ),
-                }}
-              />
-            </Option>
-          </Action>
+          <Horizontal>
+            <div>
+              <Welcome>
+                <FormattedMessage
+                  {...messages.welcome}
+                  values={{
+                    br: <br />,
+                  }}
+                />
+              </Welcome>
+              <Action>
+                <Option>
+                  <FormattedMessage
+                    {...messages.facebook}
+                    values={{
+                      fb: msg => (
+                        <Link href="https://www.facebook.com/StartupUW/">
+                          {msg}
+                        </Link>
+                      ),
+                    }}
+                  />
+                </Option>
+                <Separator>
+                  <b>OR</b>
+                </Separator>
+                <Option>
+                  <FormattedMessage
+                    {...messages.mail}
+                    values={{
+                      email: msg => (
+                        <Link href="mailto:startup@uw.edu"> {msg} </Link>
+                      ),
+                    }}
+                  />
+                </Option>
+              </Action>
+            </div>
+            <Filler />
+            <Anime opacity={[0, 1]} easing="easeInOutBack" duration={1000}>
+              <Image src="form.svg" />
+            </Anime>
+          </Horizontal>
         </Section>
         <Section>
           <ContactForm />
