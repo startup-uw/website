@@ -88,11 +88,17 @@ const Horizontal = styled.div`
 `;
 
 const Image = styled.img`
-  width: 45%;
-  max-width: 550px;
-  min-width: 300px;
-  @media only screen and (max-width: 1100px) {
+  @media only screen and (min-width: 1101px) {
+    width: 45%;
+    max-width: 550px;
+    min-width: 300px;
+  }
+  @media only screen and (max-width: 1100px) and (min-width: 500px) {
     width: 450px;
+    margin-bottom: 100px;
+  }
+  @media only screen and (max-width: 499px) {
+    width: 100%;
     margin-bottom: 100px;
   }
 `;

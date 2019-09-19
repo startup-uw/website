@@ -3,8 +3,11 @@ import styled from 'styled-components';
 import { Filler } from '../../page/Filler';
 
 const Wrapper = styled.div`
-  padding: 45px 100px 60px 100px; // adjust
+  padding: 45px 100px 60px 100px;
   background-color: #f8f8f8;
+  @media only screen and (max-width: 320px) {
+    padding: 45px 30px 60px 30px;
+  }
 `;
 
 const Body = styled.div`

@@ -19,8 +19,11 @@ const Underline = styled.div`
 const Header = styled.h1`
   font-weight: 300;
   font-size: 4em;
-  @media only screen and (max-width: 700px) {
+  @media only screen and (max-width: 700px) and (min-width: 321px) {
     font-size: 2.5em;
+  }
+  @media only screen and (max-width: 320px) {
+    font-size: 2em;
   }
 `;
 

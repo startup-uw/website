@@ -42,6 +42,9 @@ const Row = styled.div`
   flex-direction: row;
   padding: 10px;
   align-items: center;
+  @media only screen and (max-width: 321px) {
+    flex-direction: column;
+  }
 `;
 
 const Title = styled.span`
