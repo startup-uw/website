@@ -1,30 +1,45 @@
 import React from 'react';
 import styled from 'styled-components';
-import { mdiFacebookBox } from '@mdi/js';
-import Icon from '@mdi/react';
+import { Filler } from '../../page/Filler';
 
 const Wrapper = styled.div`
-  padding: 100px;
-  background-color: white;
+  padding: 45px 100px 60px 100px; // adjust
+  background-color: #f8f8f8;
 `;
 
 const Body = styled.div`
-  color: black;
+  color: #404040;
+  display: flex;
+  flex-direction: row;
+`;
+
+const Resources = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Title = styled.p`
+  font-weight: 400;
+`;
+
+const Link = styled.a`
+  text-decoration: none;
+  padding: 2px 0px 2px 0px;
 `;
 
 export default function Footer() {
   return (
     <Wrapper>
-      <Icon
-        path={mdiFacebookBox}
-        title="Facebook"
-        size={1}
-        horizontal
-        vertical
-        color="black"
-        rotate={180}
-      />
-      <Body />
+      <Body>
+        <p>© StartupUW 2019</p>
+        <Filler />
+        <Resources>
+          <Title> Resources </Title>
+          <Link href="https://www.facebook.com/StartupUW/"> Facebook </Link>
+          <Link href="https://www.instagram.com/startupuw/"> Instagram </Link>
+          <Link href="mailto:startup@uw.edu"> Email </Link>
+        </Resources>
+      </Body>
     </Wrapper>
   );
 }

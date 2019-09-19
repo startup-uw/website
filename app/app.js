@@ -26,10 +26,10 @@ import LanguageProvider from 'containers/LanguageProvider';
 /* eslint-disable import/no-unresolved, import/extensions */
 import '!file-loader?name=[name].[ext]!./images/favicon.ico';
 import '!file-loader?name=[name].[ext]!./images/cloud.svg';
-import '!file-loader?name=[name].[ext]!./images/phone-plain.jpg';
 
 import '!file-loader?name=[name].[ext]!./images/decor/cloud-entire.svg';
 import '!file-loader?name=[name].[ext]!./images/decor/form.svg';
+import '!file-loader?name=[name].[ext]!./images/decor/b.svg';
 
 import 'file-loader?name=.htaccess!./.htaccess';
 /* eslint-enable import/no-unresolved, import/extensions */

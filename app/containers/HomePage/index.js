@@ -17,6 +17,10 @@ const BodyWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  background: url('/b.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 `;
 
 const Headline = styled.div`
@@ -42,10 +46,12 @@ const Motto = styled.h1`
 
 const Background = styled.div`
   padding: 5%;
+  /*
   background: url('/cloud-entire.svg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  */
   margin-bottom: 25vh;
 `;
 
