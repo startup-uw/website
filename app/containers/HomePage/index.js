@@ -9,6 +9,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
 import Anime from 'react-anime';
+import { Filler } from 'components/page/Filler';
 import messages from './messages';
 
 const BodyWrapper = styled.div`
@@ -17,50 +18,75 @@ const BodyWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url('/b.svg');
+  /*
+  background: url('/background.svg');
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: contain; */
 `;
 
 const Headline = styled.div`
+  font-family: 'Inter', sans-serif;
   color: black;
   display: flex;
   flex-direction: column;
+  font-size: 1.5em;
+  @media only screen and (max-width: 750px) {
+    font-size: 1em;
+  }
+`;
+
+const Content = styled.div`
+  display: flex;
+  flex-direction: row;
   align-items: center;
+  width: 80%;
 `;
 
-const Motto = styled.h1`
-  letter-spacing: 7px;
-  margin-bottom: 25px;
-  @media only screen and (min-width: 750px) {
-    font-size: 3em;
-  }
-  @media only screen and (max-width: 749px) and (min-width: 600px) {
-    font-size: 2em;
-  }
-  @media only screen and (max-width: 599px) {
-    font-size: 1.5em;
+const Abstract = styled.img`
+  width: 30%;
+  max-width: 600px;
+
+  @media only screen and (max-width: 750px) {
+    display: none;
   }
 `;
 
-const Background = styled.div`
-  padding: 5%;
-  /*
-  background: url('/cloud-entire.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  */
-  margin-bottom: 25vh;
+const Arrow = styled.img`
+  width: 150px;
+  margin-top: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+  :hover {
+    cursor: pointer;
+  }
 `;
 
-const Call = styled.h1`
-  @media only screen and (max-width: 599px) {
-    font-size: 1.5em;
+const First = styled.h1`
+  letter-spacing: 10px;
+  font-weight: 500;
+  font-style: initial;
+  @media only screen and (max-width: 400px) {
+    letter-spacing: 5px;
   }
-  @media only screen and (min-width: 600px) {
-    font-size: 1.8em;
+`;
+
+const Second = styled.h1`
+  letter-spacing: 15px;
+  font-weight: 600;
+  font-style: italic;
+  @media only screen and (max-width: 400px) {
+    letter-spacing: 8px;
+  }
+`;
+
+const Third = styled.h1`
+  letter-spacing: 20px;
+  font-weight: 900;
+  font-style: initial;
+  @media only screen and (max-width: 400px) {
+    letter-spacing: 10px;
   }
 `;
 
@@ -68,16 +94,22 @@ export default function HomePage() {
   return (
     <Anime opacity={[0, 1]} easing="easeInOutBack" duration={2000}>
       <BodyWrapper>
-        <Background>
+        <Content>
           <Headline>
-            <Motto>
-              <FormattedMessage {...messages.motto} />
-            </Motto>
-            <Call>
-              <FormattedMessage {...messages.call} />
-            </Call>
+            <First>
+              <FormattedMessage {...messages.first} />
+            </First>
+            <Second>
+              <FormattedMessage {...messages.second} />
+            </Second>
+            <Third>
+              <FormattedMessage {...messages.third} />
+            </Third>
+            <Arrow src="/arrow.svg" />
           </Headline>
-        </Background>
+          <Filler />
+          <Abstract src="/abstract.svg" />
+        </Content>
       </BodyWrapper>
     </Anime>
   );

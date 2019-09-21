@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+  @import url('https://rsms.me/inter/inter.css');
   html,
   body {
     height: 100%;
