@@ -103,6 +103,14 @@ const Image = styled.img`
   }
 `;
 
+const Subscription = styled.a`
+  font-weight: 400;
+  color: #858585;
+  display: inline-block;
+  font-size: 0.9em;
+  font-style: italic;
+`;
+
 export function ContactPage() {
   return (
     <Wrapper>
@@ -118,6 +126,11 @@ export function ContactPage() {
                     br: <br />,
                   }}
                 />
+                <div>
+                  <Subscription href="http://eepurl.com/gxwclr" target="_blank">
+                    Subscribe to our mailing list here.
+                  </Subscription>
+                </div>
               </Welcome>
               <Action>
                 <Option>

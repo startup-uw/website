@@ -30,7 +30,6 @@ To generate components, containers, and more:
 ## Zapier Integration
 - Shared with team email `startup@uw.edu`
 - Optional addition, users can simply edit Firestore directly if they don't want to use the Sheets/Zapier combo
-- Row #'s are used as document IDs to allow ordering of team members
 - When UPDATING rows on the team/events sheets, duplicate documents are created in Firestore
 - Turn the Zapier ZAP off when deleting row data in the sheets (ie. changing teams)
 

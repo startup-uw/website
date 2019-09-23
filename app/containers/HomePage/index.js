@@ -22,7 +22,8 @@ const BodyWrapper = styled.div`
   background: url('/background.svg');
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain; */
+  background-size: contain;
+  */
 `;
 
 const Headline = styled.div`
@@ -44,7 +45,7 @@ const Content = styled.div`
 `;
 
 const Abstract = styled.img`
-  width: 30%;
+  width: 40%;
   max-width: 600px;
 
   @media only screen and (max-width: 750px) {
@@ -52,15 +53,19 @@ const Abstract = styled.img`
   }
 `;
 
-const Arrow = styled.img`
-  width: 150px;
+const Arrow = styled.a`
+  width: 120px;
   margin-top: 20px;
   padding-top: 10px;
   padding-bottom: 10px;
   border-radius: 5px;
   :hover {
+    width: 150px;
     cursor: pointer;
   }
+  background: url('/arrow.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
 `;
 
 const First = styled.h1`
@@ -105,7 +110,7 @@ export default function HomePage() {
             <Third>
               <FormattedMessage {...messages.third} />
             </Third>
-            <Arrow src="/arrow.svg" />
+            <Arrow href="/contact" />
           </Headline>
           <Filler />
           <Abstract src="/abstract.svg" />
