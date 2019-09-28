@@ -14,6 +14,21 @@ const EventList = styled.div`
   flex-wrap: wrap;
 `;
 
+const Unavailable = styled.div`
+  padding-left: 25px;
+  font-family: Inter, Lato, sans-serif;
+`;
+
+const Header = styled.h1`
+  font-weight: 600;
+  font-size: 4em;
+`;
+
+const Explanation = styled.p`
+  font-weight: 300;
+  font-size: 1.7em;
+`;
+
 function EventsPage(props) {
   const [data, setData] = useState([]);
 
@@ -24,7 +39,6 @@ function EventsPage(props) {
         (a, b) =>
           Moment(b, 'MM/DD/YY').valueOf() - Moment(a, 'MM/DD/YY').valueOf(),
       );
-      result.map(d => console.log(d.data()));
       setData(result);
     }
     fetch();
@@ -55,7 +69,13 @@ function EventsPage(props) {
             ))}
           </Anime>
         ) : (
-          <h1>...</h1>
+          <Unavailable>
+            <Header> UH OH! </Header>
+            <Explanation>
+              Unfortunately we do not have any events listed right now,{' '}
+              <b>sorry!</b>
+            </Explanation>
+          </Unavailable>
         )}
       </EventList>
     </Wrapper>
