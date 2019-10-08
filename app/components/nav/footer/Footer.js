@@ -14,6 +14,9 @@ const Body = styled.div`
   color: #404040;
   display: flex;
   flex-direction: row;
+  @media only screen and (max-width: 321px) {
+    font-size: 0.9em;
+  }
 `;
 
 const Resources = styled.div`
