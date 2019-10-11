@@ -14,12 +14,16 @@ const MainText = styled.span`
 */
 
 export default defineMessages({
-  motto: {
-    id: `${scope}.motto`,
-    defaultMessage: `ideate / iterate / innovate`,
+  first: {
+    id: `${scope}.first`,
+    defaultMessage: `IDEATE`,
   },
-  call: {
-    id: `${scope}.call`,
-    defaultMessage: 'join the movement.',
+  second: {
+    id: `${scope}.second`,
+    defaultMessage: `ITERATE`,
+  },
+  third: {
+    id: `${scope}.third`,
+    defaultMessage: `INNOVATE`,
   },
 });

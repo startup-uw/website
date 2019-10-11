@@ -5,6 +5,7 @@
  */
 
 import React, { memo } from 'react';
+import Anime from 'react-anime';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
@@ -13,13 +14,14 @@ import { compose } from 'redux';
 import { Wrapper } from '../../components/page/Wrapper';
 import Title from '../../components/page/Title';
 import ContactForm from '../../components/Contact/index';
+import { Filler } from '../../components/page/Filler';
 
 import messages from './messages';
 
 const Welcome = styled.div`
   font-size: 1.5em;
   color: black;
-  padding-bottom: 20px;
+  margin-bottom: 75px;
   font-weight: bold;
   line-height: 1.5;
 `;
@@ -37,7 +39,7 @@ const Separator = styled.p`
 `;
 
 const Body = styled.div`
-  padding-left: 25px;
+  padding-left: 20px;
   @media only screen and (max-width: 650px) {
     padding-left: 0px;
   }
@@ -54,6 +56,10 @@ const Link = styled.a`
   :hover {
     background-color: rgba(0, 0, 0, 0.05);
   }
+  @media only screen and (max-width: 680px) {
+    margin-top: 2px;
+    padding: 1px 1px 1px 1px;
+  }
 `;
 
 const Section = styled.section`
@@ -64,54 +70,111 @@ const Option = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  @media only screen and (max-width: 650px) {
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
+const Horizontal = styled.div`
+  display: flex;
+  flex-direction: row;
+  @media only screen and (max-width: 1100px) {
+    flex-direction: column-reverse;
+  }
+  @media only screen and (min-width: 1101px) {
+    flex-direction: row;
+  }
+`;
+
+const Image = styled.img`
+  @media only screen and (min-width: 1101px) {
+    width: 45%;
+    max-width: 550px;
+    min-width: 300px;
+  }
+  @media only screen and (max-width: 1100px) and (min-width: 500px) {
+    width: 450px;
+    margin-bottom: 100px;
+  }
+  @media only screen and (max-width: 499px) {
+    width: 100%;
+    margin-bottom: 100px;
+  }
+`;
+
+const Subscription = styled.a`
+  font-weight: 400;
+  color: #858585;
+  display: inline-block;
+  font-size: 0.9em;
+  font-style: italic;
 `;
 
 export function ContactPage() {
   return (
     <Wrapper>
       <Title text="GET IN TOUCH" />
-      <Body>
-        <Section>
-          <Welcome>
-            <FormattedMessage
-              {...messages.welcome}
-              values={{
-                br: <br />,
-              }}
-            />
-          </Welcome>
-          <Action>
-            <Option>
-              <FormattedMessage
-                {...messages.facebook}
-                values={{
-                  fb: msg => (
-                    <Link href="https://www.facebook.com/StartupUW/">
-                      {msg}
-                    </Link>
-                  ),
-                }}
-              />
-            </Option>
-            <Separator>
-              <b>OR</b>
-            </Separator>
-            <Option>
-              <FormattedMessage
-                {...messages.mail}
-                values={{
-                  email: msg => (
-                    <Link href="mailto:startup@uw.edu"> {msg} </Link>
-                  ),
-                }}
-              />
-            </Option>
-          </Action>
-        </Section>
-        <Section>
-          <ContactForm />
-        </Section>
-      </Body>
+      <Anime opacity={[0, 1]} easing="easeInOutBack" duration={1500}>
+        <Body>
+          <Section>
+            <Horizontal>
+              <div>
+                <Welcome>
+                  <FormattedMessage
+                    {...messages.welcome}
+                    values={{
+                      br: <br />,
+                    }}
+                  />
+                  <div>
+                    <Subscription
+                      href="http://eepurl.com/gxwclr"
+                      target="_blank"
+                    >
+                      Subscribe to our mailing list here.
+                    </Subscription>
+                  </div>
+                </Welcome>
+                <Action>
+                  <Option>
+                    <FormattedMessage
+                      {...messages.facebook}
+                      values={{
+                        fb: msg => (
+                          <Link href="https://www.facebook.com/StartupUW/">
+                            {msg}
+                          </Link>
+                        ),
+                      }}
+                    />
+                  </Option>
+                  <Separator>
+                    <b>OR</b>
+                  </Separator>
+                  <Option>
+                    <FormattedMessage
+                      {...messages.mail}
+                      values={{
+                        email: msg => (
+                          <Link href="mailto:startup@uw.edu"> {msg} </Link>
+                        ),
+                      }}
+                    />
+                  </Option>
+                </Action>
+              </div>
+              <Filler />
+              <Anime opacity={[0, 1]} easing="easeInOutBack" duration={1000}>
+                <Image src="form.svg" />
+              </Anime>
+            </Horizontal>
+          </Section>
+          <Section>
+            <ContactForm />
+          </Section>
+        </Body>
+      </Anime>
     </Wrapper>
   );
 }

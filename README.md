@@ -2,7 +2,7 @@
 
 Built upon this [react-boilerplate](https://github.com/react-boilerplate/react-boilerplate)
 
-By Aaron Chen and Connor Carlson
+By Aaron Chen
 
 To begin, run: 
 
@@ -22,12 +22,17 @@ To generate components, containers, and more:
 - Gather all team pictures
 
 ## Notes
-- Turn the Zapier ZAP off when deleting row data in the sheets (ie. changing teams)
-- Google Sheets edits update fairly slowly (a couple minutes) to Firestore
+- Google Sheets edits update slowly (a couple minutes) to Firestore
 - Pull profile picture URLs from Firebase Storage's "getDownloadURL"
-- Using React Context and Higher Order Components (HOC) to provide Firebase/Firestore to this app
-- Contact forms are integrated with Formspark (shared to startup@uw.edu)
-- Row #'s are used as document IDs to allow ordering of team members
+- Uses React Context/Higher Order Components (HOC) to provide Firebase/Firestore to this app
+- Contact forms are integrated with Formspark (shared to `startup@uw.edu`)
+
+## Zapier Integration
+- Shared with team email `startup@uw.edu`
+- Optional addition, users can simply edit Firestore directly if they don't want to use the Sheets/Zapier combo
+- When UPDATING rows on the team/events sheets, duplicate documents are created in Firestore
+- Turn the Zapier ZAP off when deleting row data in the sheets (ie. changing teams)
+
 
 
 

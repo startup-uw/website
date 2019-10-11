@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import Tabletop from 'tabletop';
+// import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Axios from 'axios';
 import Anime from 'react-anime';
+// import { withFirebase } from 'firebase/Module';
+import Moment from 'moment';
 import { Wrapper } from '../../components/page/Wrapper';
 import Title from '../../components/page/Title';
 import EventCard from '../../components/events/EventCard/Loadable';
-import Config from '../../config';
 
 const EventList = styled.div`
   display: flex;
@@ -13,24 +15,54 @@ const EventList = styled.div`
   flex-wrap: wrap;
 `;
 
-export default function EventsPage() {
+const Unavailable = styled.div`
+  padding-left: 25px;
+  font-family: Inter, Lato, sans-serif;
+`;
+
+const Header = styled.h1`
+  font-weight: 600;
+  font-size: 4em;
+`;
+
+const Explanation = styled.p`
+  font-weight: 300;
+  font-size: 1.7em;
+`;
+
+function EventsPage(/* props */) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    Tabletop.init({
-      key: Config.EVENTS_URL,
-      callback: d => {
-        setData(d);
-      },
-      simpleSheet: true,
-    });
+    async function fetch() {
+      // const result = await props.firebase.getEvents().then(d => d.docs);
+      /*
+      result.sort(
+        (a, b) =>
+          Moment(b, 'MM/DD/YY').valueOf() - Moment(a, 'MM/DD/YY').valueOf(),
+      );
+      setData(result);
+      */
+      const result = await Axios({
+        url: 'https://us-central1-startupuwrso.cloudfunctions.net/getEvents',
+        method: 'get',
+      }).then(res =>
+        res.data.sort(
+          (a, b) =>
+            Moment(b, 'MM-DD-YY').valueOf() - Moment(a, 'MM-DD-YY').valueOf(),
+        ),
+      );
+
+      setData(result);
+    }
+    fetch();
   }, []);
 
   return (
     <Wrapper>
       <Title text="UPCOMING EVENTS" />
       <EventList>
-        {data.length > 0 ? (
+        {data != null && data.length > 0 ? (
           <Anime
             opacity={[0, 1]}
             key={Date.now()}
@@ -41,18 +73,36 @@ export default function EventsPage() {
             {data.map(element => (
               <div key={element}>
                 <EventCard
-                  title={element.Title}
-                  description={element.Description}
-                  date={element.Date}
-                  location={element.Location}
+                  title={element.title}
+                  description={element.description}
+                  date={element.date}
+                  location={element.location}
+                  time={element.time}
                 />
               </div>
             ))}
           </Anime>
         ) : (
-          <h1>...</h1>
+          <Unavailable>
+            <Anime opacity={[0, 1]} easing="easeInOutBack" duration={1000}>
+              <Header> UH OH! </Header>
+              <Explanation>
+                Unfortunately we do not have any events listed right now,{' '}
+                <b>sorry!</b>
+              </Explanation>
+            </Anime>
+          </Unavailable>
         )}
       </EventList>
     </Wrapper>
   );
 }
+
+/*
+EventsPage.propTypes = {
+  firebase: PropTypes.object.isRequired,
+};
+*/
+
+// export default withFirebase(EventsPage);
+export default EventsPage;

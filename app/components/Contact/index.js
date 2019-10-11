@@ -5,7 +5,6 @@
  */
 
 import React from 'react';
-// import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import { FormattedMessage } from 'react-intl';
@@ -35,6 +34,7 @@ const Form = styled.form`
     width: 90%;
     margin-right: 0px;
   }
+  max-width: 625px;
 `;
 
 const Row = styled.div`
@@ -42,6 +42,9 @@ const Row = styled.div`
   flex-direction: row;
   padding: 10px;
   align-items: center;
+  @media only screen and (max-width: 321px) {
+    flex-direction: column;
+  }
 `;
 
 const Title = styled.span`

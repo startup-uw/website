@@ -19,27 +19,32 @@ import ContactPage from 'containers/ContactPage/index';
 
 import GlobalStyle from '../../global-styles';
 
-import NavigationBar from '../../components/nav/NavigationBar';
+import NavigationBar from '../../components/nav/header/NavigationBar';
+
+import Footer from '../../components/nav/footer/Footer';
 
 const Main = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   background-color: white;
 `;
 
 export default function App() {
   return (
-    <Main>
-      <NavigationBar />
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/team" component={TeamPage} />
-        <Route exact path="/events" component={EventsPage} />
-        <Route exact path="/contact" component={ContactPage} />
-        <Route component={NotFoundPage} />
-      </Switch>
-      <GlobalStyle />
-    </Main>
+    <React.Fragment>
+      <Main>
+        <NavigationBar />
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/team" component={TeamPage} />
+          <Route exact path="/events" component={EventsPage} />
+          <Route exact path="/contact" component={ContactPage} />
+          <Route component={NotFoundPage} />
+        </Switch>
+        <GlobalStyle />
+      </Main>
+      <Footer />
+    </React.Fragment>
   );
 }
