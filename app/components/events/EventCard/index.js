@@ -51,7 +51,7 @@ const Details = styled.p`
   }
 `;
 
-const Description = styled.p`
+const Description = styled.div`
   font-size: 0.9em;
   font-weight: 500;
 `;
@@ -69,7 +69,7 @@ const Filler = styled.span`
 `;
 
 function formatDate(date) {
-  return Moment(date).format('dddd, MMMM Do YYYY');
+  return Moment(date, 'MM-DD-YYYY').format('dddd, MMMM Do YYYY');
 }
 
 function EventCard(props) {

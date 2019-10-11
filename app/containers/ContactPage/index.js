@@ -115,61 +115,66 @@ export function ContactPage() {
   return (
     <Wrapper>
       <Title text="GET IN TOUCH" />
-      <Body>
-        <Section>
-          <Horizontal>
-            <div>
-              <Welcome>
-                <FormattedMessage
-                  {...messages.welcome}
-                  values={{
-                    br: <br />,
-                  }}
-                />
-                <div>
-                  <Subscription href="http://eepurl.com/gxwclr" target="_blank">
-                    Subscribe to our mailing list here.
-                  </Subscription>
-                </div>
-              </Welcome>
-              <Action>
-                <Option>
+      <Anime opacity={[0, 1]} easing="easeInOutBack" duration={1500}>
+        <Body>
+          <Section>
+            <Horizontal>
+              <div>
+                <Welcome>
                   <FormattedMessage
-                    {...messages.facebook}
+                    {...messages.welcome}
                     values={{
-                      fb: msg => (
-                        <Link href="https://www.facebook.com/StartupUW/">
-                          {msg}
-                        </Link>
-                      ),
+                      br: <br />,
                     }}
                   />
-                </Option>
-                <Separator>
-                  <b>OR</b>
-                </Separator>
-                <Option>
-                  <FormattedMessage
-                    {...messages.mail}
-                    values={{
-                      email: msg => (
-                        <Link href="mailto:startup@uw.edu"> {msg} </Link>
-                      ),
-                    }}
-                  />
-                </Option>
-              </Action>
-            </div>
-            <Filler />
-            <Anime opacity={[0, 1]} easing="easeInOutBack" duration={1000}>
-              <Image src="form.svg" />
-            </Anime>
-          </Horizontal>
-        </Section>
-        <Section>
-          <ContactForm />
-        </Section>
-      </Body>
+                  <div>
+                    <Subscription
+                      href="http://eepurl.com/gxwclr"
+                      target="_blank"
+                    >
+                      Subscribe to our mailing list here.
+                    </Subscription>
+                  </div>
+                </Welcome>
+                <Action>
+                  <Option>
+                    <FormattedMessage
+                      {...messages.facebook}
+                      values={{
+                        fb: msg => (
+                          <Link href="https://www.facebook.com/StartupUW/">
+                            {msg}
+                          </Link>
+                        ),
+                      }}
+                    />
+                  </Option>
+                  <Separator>
+                    <b>OR</b>
+                  </Separator>
+                  <Option>
+                    <FormattedMessage
+                      {...messages.mail}
+                      values={{
+                        email: msg => (
+                          <Link href="mailto:startup@uw.edu"> {msg} </Link>
+                        ),
+                      }}
+                    />
+                  </Option>
+                </Action>
+              </div>
+              <Filler />
+              <Anime opacity={[0, 1]} easing="easeInOutBack" duration={1000}>
+                <Image src="form.svg" />
+              </Anime>
+            </Horizontal>
+          </Section>
+          <Section>
+            <ContactForm />
+          </Section>
+        </Body>
+      </Anime>
     </Wrapper>
   );
 }

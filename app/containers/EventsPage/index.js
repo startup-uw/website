@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Axios from 'axios';
 import Anime from 'react-anime';
-import { withFirebase } from 'firebase/Module';
+// import { withFirebase } from 'firebase/Module';
 import Moment from 'moment';
 import { Wrapper } from '../../components/page/Wrapper';
 import Title from '../../components/page/Title';
@@ -29,16 +30,29 @@ const Explanation = styled.p`
   font-size: 1.7em;
 `;
 
-function EventsPage(props) {
+function EventsPage(/* props */) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
     async function fetch() {
-      const result = await props.firebase.getEvents().then(d => d.docs);
+      // const result = await props.firebase.getEvents().then(d => d.docs);
+      /*
       result.sort(
         (a, b) =>
           Moment(b, 'MM/DD/YY').valueOf() - Moment(a, 'MM/DD/YY').valueOf(),
       );
+      setData(result);
+      */
+      const result = await Axios({
+        url: 'https://us-central1-startupuwrso.cloudfunctions.net/getEvents',
+        method: 'get',
+      }).then(res =>
+        res.data.sort(
+          (a, b) =>
+            Moment(b, 'MM-DD-YY').valueOf() - Moment(a, 'MM-DD-YY').valueOf(),
+        ),
+      );
+
       setData(result);
     }
     fetch();
@@ -48,7 +62,7 @@ function EventsPage(props) {
     <Wrapper>
       <Title text="UPCOMING EVENTS" />
       <EventList>
-        {data.length > 0 ? (
+        {data != null && data.length > 0 ? (
           <Anime
             opacity={[0, 1]}
             key={Date.now()}
@@ -59,22 +73,24 @@ function EventsPage(props) {
             {data.map(element => (
               <div key={element}>
                 <EventCard
-                  title={element.data().title}
-                  description={element.data().description}
-                  date={element.data().date}
-                  location={element.data().location}
-                  time={element.data().time}
+                  title={element.title}
+                  description={element.description}
+                  date={element.date}
+                  location={element.location}
+                  time={element.time}
                 />
               </div>
             ))}
           </Anime>
         ) : (
           <Unavailable>
-            <Header> UH OH! </Header>
-            <Explanation>
-              Unfortunately we do not have any events listed right now,{' '}
-              <b>sorry!</b>
-            </Explanation>
+            <Anime opacity={[0, 1]} easing="easeInOutBack" duration={1000}>
+              <Header> UH OH! </Header>
+              <Explanation>
+                Unfortunately we do not have any events listed right now,{' '}
+                <b>sorry!</b>
+              </Explanation>
+            </Anime>
           </Unavailable>
         )}
       </EventList>
@@ -82,8 +98,11 @@ function EventsPage(props) {
   );
 }
 
+/*
 EventsPage.propTypes = {
   firebase: PropTypes.object.isRequired,
 };
+*/
 
-export default withFirebase(EventsPage);
+// export default withFirebase(EventsPage);
+export default EventsPage;

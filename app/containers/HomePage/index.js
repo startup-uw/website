@@ -27,7 +27,7 @@ const BodyWrapper = styled.div`
 `;
 
 const Headline = styled.div`
-  font-family: 'Inter', sans-serif;
+  font-family: 'Lato', sans-serif;
   color: black;
   display: flex;
   flex-direction: column;

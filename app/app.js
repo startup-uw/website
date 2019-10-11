@@ -41,8 +41,6 @@ import configureStore from './configureStore';
 // Import i18n messages
 import { translationMessages } from './i18n';
 
-import Firebase, { FirebaseContext } from './firebase/Module';
-
 const path = (/#!(\/.*)$/.exec(window.location.hash) || [])[1];
 if (path) {
   history.replace(path);
@@ -58,9 +56,7 @@ const render = messages => {
     <Provider store={store}>
       <LanguageProvider messages={messages}>
         <ConnectedRouter history={history}>
-          <FirebaseContext.Provider value={new Firebase()}>
-            <App />
-          </FirebaseContext.Provider>
+          <App />
         </ConnectedRouter>
       </LanguageProvider>
     </Provider>,
