@@ -52,7 +52,6 @@ function EventsPage(/* props */) {
             Moment(b, 'MM-DD-YY').valueOf() - Moment(a, 'MM-DD-YY').valueOf(),
         ),
       );
-
       setData(result);
     }
     fetch();
@@ -62,7 +61,7 @@ function EventsPage(/* props */) {
     <Wrapper>
       <Title text="UPCOMING EVENTS" />
       <EventList>
-        {data != null && data.length > 0 ? (
+        {data.length >= 1 ? (
           <Anime
             opacity={[0, 1]}
             key={Date.now()}
@@ -84,13 +83,11 @@ function EventsPage(/* props */) {
           </Anime>
         ) : (
           <Unavailable>
-            <Anime opacity={[0, 1]} easing="easeInOutBack" duration={1000}>
-              <Header> UH OH! </Header>
-              <Explanation>
-                Unfortunately we do not have any events listed right now,{' '}
-                <b>sorry!</b>
-              </Explanation>
-            </Anime>
+            <Header> UH OH! </Header>
+            <Explanation>
+              Unfortunately we do not have any events listed right now,{' '}
+              <b>sorry!</b>
+            </Explanation>
           </Unavailable>
         )}
       </EventList>
