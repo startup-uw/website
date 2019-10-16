@@ -25,9 +25,7 @@ import LanguageProvider from 'containers/LanguageProvider';
 // Load the favicon and the .htaccess file
 /* eslint-disable import/no-unresolved, import/extensions */
 import '!file-loader?name=[name].[ext]!./images/favicon.ico';
-import '!file-loader?name=[name].[ext]!./images/cloud.svg';
 
-import '!file-loader?name=[name].[ext]!./images/decor/cloud-entire.svg';
 import '!file-loader?name=[name].[ext]!./images/decor/form.svg';
 import '!file-loader?name=[name].[ext]!./images/decor/b.svg';
 import '!file-loader?name=[name].[ext]!./images/decor/abstract.svg';

@@ -84,6 +84,7 @@ const Horizontal = styled.div`
   }
   @media only screen and (min-width: 1101px) {
     flex-direction: row;
+    align-items: center;
   }
 `;
 
