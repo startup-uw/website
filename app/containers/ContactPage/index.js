@@ -143,7 +143,10 @@ export function ContactPage() {
                       {...messages.facebook}
                       values={{
                         fb: msg => (
-                          <Link href="https://www.facebook.com/StartupUW/">
+                          <Link
+                            href="https://www.facebook.com/StartupUW/"
+                            target="_blank"
+                          >
                             {msg}
                           </Link>
                         ),
