@@ -14,18 +14,19 @@ To generate components, containers, and more:
 
 ## Todo
 - [x] Homepage responsiveness and design finish
-- [] Loading icons (team and events page)
+- [-] Loading icons (team and events page)
 - [x] Contact page
 - [x] Overall polish
-- [] 404 page
-- [] Social media icons and links
-- [] Gather all team pictures
+- [-] 404 page
+- [-] Social media icons and links
+- [-] Gather all team pictures
 
 ## Notes
 - Google Sheets edits update slowly (a couple minutes) to Firestore
 - Pull profile picture URLs from Firebase Storage's "getDownloadURL"
 - Uses React Context/Higher Order Components (HOC) to provide Firebase/Firestore to this app
 - Contact forms are integrated with Formspark (shared to `startup@uw.edu`)
+- Email forwarding is set to my personal email (`ilestkempo@gmail.com`)
 
 ## Zapier Integration
 - Shared with team email `startup@uw.edu`
