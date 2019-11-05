@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
-// import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Axios from 'axios';
 import Anime from 'react-anime';
-// import { withFirebase } from 'firebase/Module';
 import Moment from 'moment';
 import { Wrapper } from '../../components/page/Wrapper';
 import Title from '../../components/page/Title';
@@ -18,6 +16,10 @@ const EventList = styled.div`
 const Unavailable = styled.div`
   padding-left: 25px;
   font-family: Inter, Lato, sans-serif;
+
+  @media only screen and (max-width: 480px) {
+    padding-left: 0px;
+  }
 `;
 
 const Header = styled.h1`
@@ -35,14 +37,6 @@ function EventsPage(/* props */) {
 
   useEffect(() => {
     async function fetch() {
-      // const result = await props.firebase.getEvents().then(d => d.docs);
-      /*
-      result.sort(
-        (a, b) =>
-          Moment(b, 'MM/DD/YY').valueOf() - Moment(a, 'MM/DD/YY').valueOf(),
-      );
-      setData(result);
-      */
       const result = await Axios({
         url: 'https://us-central1-startupuwrso.cloudfunctions.net/getEvents',
         method: 'get',

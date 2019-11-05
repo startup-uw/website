@@ -21,7 +21,6 @@ const Body = styled.div`
 `;
 
 const Form = styled.form`
-  padding: 10px;
   display: flex;
   flex-direction: column;
   width: 40%;
@@ -42,7 +41,7 @@ const Row = styled.div`
   flex-direction: row;
   padding: 10px;
   align-items: center;
-  @media only screen and (max-width: 321px) {
+  @media only screen and (max-width: 400px) {
     flex-direction: column;
   }
 `;
@@ -83,6 +82,13 @@ const TextArea = styled.textarea`
 
 const Submission = styled.button`
   border-radius: 3px;
+  background-color: white;
+  color: #a6a6a6;
+  border-style: solid;
+  border-width: 1px;
+  font-weight: 300;
+  padding-top: 5px;
+  padding-bottom: 5px;
 `;
 
 const Header = styled.h1`
