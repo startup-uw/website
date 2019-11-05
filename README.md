@@ -14,12 +14,12 @@ To generate components, containers, and more:
 
 ## Todo
 - [x] Homepage responsiveness and design finish
-- [-] Loading icons (team and events page)
+- [ ] Loading icons (team and events page)
 - [x] Contact page
 - [x] Overall polish
-- [-] 404 page
-- [-] Social media icons and links
-- [-] Gather all team pictures
+- [ ] 404 page
+- [ ] Social media icons and links
+- [x] Team pictures
 
 ## Notes
 - Google Sheets edits update slowly (a couple minutes) to Firestore
