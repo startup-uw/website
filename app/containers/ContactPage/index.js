@@ -84,6 +84,7 @@ const Horizontal = styled.div`
   }
   @media only screen and (min-width: 1101px) {
     flex-direction: row;
+    align-items: center;
   }
 `;
 
@@ -142,7 +143,10 @@ export function ContactPage() {
                       {...messages.facebook}
                       values={{
                         fb: msg => (
-                          <Link href="https://www.facebook.com/StartupUW/">
+                          <Link
+                            href="https://www.facebook.com/StartupUW/"
+                            target="_blank"
+                          >
                             {msg}
                           </Link>
                         ),

@@ -32,7 +32,7 @@ const Headline = styled.div`
   display: flex;
   flex-direction: column;
   font-size: 1.5em;
-  @media only screen and (max-width: 750px) {
+  @media only screen and (max-width: 850px) {
     font-size: 1em;
   }
 `;
@@ -69,29 +69,47 @@ const Arrow = styled.a`
 `;
 
 const First = styled.h1`
-  letter-spacing: 10px;
   font-weight: 500;
   font-style: initial;
-  @media only screen and (max-width: 400px) {
+
+  @media only screen and (min-width: 401px) {
+    letter-spacing: 10px;
+  }
+  @media only screen and (max-width: 400px) and (min-width: 300px) {
     letter-spacing: 5px;
+  }
+  @media only screen and (max-width: 299px) {
+    letter-spacing: 3px;
   }
 `;
 
 const Second = styled.h1`
-  letter-spacing: 15px;
   font-weight: 600;
   font-style: italic;
-  @media only screen and (max-width: 400px) {
+
+  @media only screen and (min-width: 401px) {
+    letter-spacing: 15px;
+  }
+  @media only screen and (max-width: 400px) and (min-width: 300px) {
     letter-spacing: 8px;
+  }
+  @media only screen and (max-width: 299px) {
+    letter-spacing: 5px;
   }
 `;
 
 const Third = styled.h1`
-  letter-spacing: 20px;
   font-weight: 900;
   font-style: initial;
-  @media only screen and (max-width: 400px) {
+
+  @media only screen and (min-width: 401px) {
+    letter-spacing: 20px;
+  }
+  @media only screen and (max-width: 400px) and (min-width: 300px) {
     letter-spacing: 10px;
+  }
+  @media only screen and (max-width: 299px) {
+    letter-spacing: 5px;
   }
 `;
 

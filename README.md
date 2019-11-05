@@ -13,13 +13,13 @@ To generate components, containers, and more:
 `npm run generate`
 
 ## Todo
-- Homepage responsiveness and design finish
-- Loading icons (team and events page)
-- Contact page
-- Overall polish (animations)
-- 404 page
-- Social media icons and links
-- Gather all team pictures
+- [x] Homepage responsiveness and design finish
+- [] Loading icons (team and events page)
+- [x] Contact page
+- [x] Overall polish
+- [] 404 page
+- [] Social media icons and links
+- [] Gather all team pictures
 
 ## Notes
 - Google Sheets edits update slowly (a couple minutes) to Firestore

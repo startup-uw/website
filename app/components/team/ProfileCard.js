@@ -14,7 +14,7 @@ const Card = styled.div`
 
 const ProfileImage = styled.img`
   width: 200px;
-  height: 200px;
+  height: 220px;
   border-radius: 5px;
 `;
 
@@ -27,9 +27,10 @@ const Name = styled.h3`
 `;
 
 const Position = styled.h3`
-  color: black;
+  color: #787878;
   font-style: italic;
   font-size: 1.1em;
+  font-weight: 300;
 `;
 
 export default function ProfileCard(props) {
