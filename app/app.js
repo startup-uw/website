@@ -30,6 +30,8 @@ import '!file-loader?name=[name].[ext]!./images/decor/form.svg';
 import '!file-loader?name=[name].[ext]!./images/decor/b.svg';
 import '!file-loader?name=[name].[ext]!./images/decor/abstract.svg';
 import '!file-loader?name=[name].[ext]!./images/decor/arrow.svg';
+import '!file-loader?name=[name].[ext]!./images/decor/profile-loading.svg';
+import '!file-loader?name=[name].[ext]!./images/decor/event-loading.svg';
 
 import 'file-loader?name=.htaccess!./.htaccess';
 /* eslint-enable import/no-unresolved, import/extensions */

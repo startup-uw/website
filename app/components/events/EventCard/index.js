@@ -26,7 +26,7 @@ const Card = styled.div`
 const Image = styled.img`
   min-width: 250px;
   height: 200px;
-  padding-right: 10px;
+  padding-right: 15px;
 
   @media only screen and (max-width: 700px) {
     width: 100%;
@@ -68,6 +68,10 @@ const Filler = styled.span`
   flex: 1 1 auto;
 `;
 
+const Time = styled.div`
+  padding-bottom: 5px;
+`;
+
 function formatDate(date) {
   return Moment(date, 'MM-DD-YYYY').format('dddd, MMMM Do YYYY');
 }
@@ -93,7 +97,7 @@ function EventCard(props) {
             />
           </Details>
           <Description>
-            <div> {props.time}</div>
+            <Time> {props.time}</Time>
             <FormattedMessage
               {...messages.desc}
               values={{ description: props.description }}

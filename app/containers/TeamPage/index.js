@@ -2,12 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Anime from 'react-anime';
 import styled from 'styled-components';
 import Axios from 'axios';
-// import Request from 'request-promise';
-// import PropTypes from 'prop-types';
 import Title from '../../components/page/Title';
 import ProfileCard from '../../components/team/ProfileCard';
 import { Wrapper } from '../../components/page/Wrapper';
-// import { withFirebase } from '../../firebase/Module';
 
 const ProfileView = styled.div`
   display: flex;
@@ -18,23 +15,16 @@ const ProfileView = styled.div`
   }
 `;
 
+const Placeholder = styled.img`
+  width: 300px;
+  padding: 20px;
+`;
+
 function TeamPage(/* props */) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
     async function fetch() {
-      // const result = await props.firebase.getTeamMembers().then(d => d.docs);
-      // setData(result);
-
-      /**
-
-      const options = {
-        uri: 'https://us-central1-startupuwrso.cloudfunctions.net/getTeam',
-        method: 'GET',
-        json: true,
-      };
-      const result = await Request(options).then(d => d);
-      */
       const result = await Axios({
         url: 'https://us-central1-startupuwrso.cloudfunctions.net/getTeam',
         method: 'get',
@@ -67,7 +57,18 @@ function TeamPage(/* props */) {
             ))}
           </Anime>
         ) : (
-          <h1>...</h1>
+          <Anime
+            opacity={[0, 1]}
+            key={Date.now()}
+            easing="easeInOutSine"
+            translateX={10}
+            duration={2500}
+            loop
+          >
+            <Placeholder src="profile-loading.svg" />
+            <Placeholder src="profile-loading.svg" />
+            <Placeholder src="profile-loading.svg" />
+          </Anime>
         )}
       </ProfileView>
     </Wrapper>

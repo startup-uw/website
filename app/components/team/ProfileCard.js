@@ -4,10 +4,16 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const Card = styled.div`
-  padding: 0px 25px 50px 25px;
+  transition: 500ms box-shadow;
+  margin: 0px 15px 30px 15px;
+  padding: 20px 20px 20px 20px;
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  :hover {
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+  }
 `;
 
 // TODO: add media queries to adjust card size and font
@@ -20,16 +26,16 @@ const ProfileImage = styled.img`
 
 const Name = styled.h3`
   color: #858585;
-  padding: 10px;
+  padding: 8px;
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 1px;
 `;
 
 const Position = styled.h3`
-  color: #787878;
+  color: #bfbfbf;
   font-style: italic;
-  font-size: 1.1em;
+  font-size: 1em;
   font-weight: 300;
 `;
 
