@@ -18,12 +18,6 @@ const BodyWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  /*
-  background: url('/background.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  */
 `;
 
 const Headline = styled.div`

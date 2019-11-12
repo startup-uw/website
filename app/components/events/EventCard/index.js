@@ -19,25 +19,14 @@ const Card = styled.div`
   flex-direction: row;
   @media only screen and (max-width: 700px) {
     flex-direction: column;
-    padding: 25px 0px 0px 0px;
-  }
-`;
-
-const Image = styled.img`
-  min-width: 250px;
-  height: 200px;
-  padding-right: 15px;
-
-  @media only screen and (max-width: 700px) {
-    width: 100%;
-    padding: 15px 60px 30px 60px;
+    padding: 15px 0px 0px 0px;
   }
 `;
 
 const Body = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 600px; // TODO: FIX
+  max-width: 600px;
 `;
 
 const Details = styled.p`
@@ -72,14 +61,43 @@ const Time = styled.div`
   padding-bottom: 5px;
 `;
 
+const Image = styled.img`
+  height: 200px;
+  padding-right: 15px;
+  @media only screen and (max-width: 700px) {
+    max-width: 325px;
+  }
+  @media only screen and (min-width: 701px) {
+    max-width: 325px;
+  }
+`;
+
+const Banner = styled.div`
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
+`;
+
+const RSVP = styled.a`
+  text-decoration: none;
+  font-weight: 700;
+  color: black;
+  cursor: pointer;
+  margin-left: 5px;
+`;
+
 function formatDate(date) {
-  return Moment(date, 'MM-DD-YYYY').format('dddd, MMMM Do YYYY');
+  return Moment(date, 'MM-DD-YYYY').format('dddd, MMMM Do');
 }
 
 function EventCard(props) {
   return (
     <Card>
-      <Image />
+      <Banner>
+        <a href={props.facebook}>
+          <Image src={props.picture} />
+        </a>
+      </Banner>
       <Body>
         <Title>
           <FormattedMessage
@@ -102,6 +120,7 @@ function EventCard(props) {
               {...messages.desc}
               values={{ description: props.description }}
             />
+            {props.rsvp ? <RSVP href={props.rsvp}>RSVP HERE.</RSVP> : null}
           </Description>
         </div>
       </Body>
@@ -115,6 +134,9 @@ EventCard.propTypes = {
   date: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
+  facebook: PropTypes.string,
+  picture: PropTypes.string,
+  rsvp: PropTypes.string,
 };
 
 export default memo(EventCard);

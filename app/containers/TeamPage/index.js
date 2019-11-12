@@ -17,11 +17,13 @@ const ProfileView = styled.div`
 
 const Placeholder = styled.img`
   width: 300px;
+  height: 350px;
   padding: 20px;
 `;
 
 function TeamPage(/* props */) {
   const [data, setData] = useState([]);
+  const show = false;
 
   useEffect(() => {
     async function fetch() {
@@ -38,7 +40,7 @@ function TeamPage(/* props */) {
     <Wrapper>
       <Title text="THE TEAM" />
       <ProfileView>
-        {data != null && data.length > 0 ? (
+        {show && data != null && data.length > 0 ? (
           <Anime
             opacity={[0, 1]}
             key={Date.now()}
@@ -61,7 +63,6 @@ function TeamPage(/* props */) {
             opacity={[0, 1]}
             key={Date.now()}
             easing="easeInOutSine"
-            translateX={10}
             duration={2500}
             loop
           >

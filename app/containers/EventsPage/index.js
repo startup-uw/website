@@ -13,27 +13,21 @@ const EventList = styled.div`
   flex-wrap: wrap;
 `;
 
-const Unavailable = styled.div`
-  padding-left: 25px;
-  font-family: Inter, Lato, sans-serif;
+const Placeholder = styled.img`
+  @media only screen and (min-width: 501px) {
+    width: 400px;
+    height: 300px;
+  }
 
-  @media only screen and (max-width: 480px) {
-    padding-left: 0px;
+  @media only screen and (max-width: 500px) {
+    width: 250px;
+    height: 200px;
   }
 `;
 
-const Header = styled.h1`
-  font-weight: 600;
-  font-size: 4em;
-`;
-
-const Explanation = styled.p`
-  font-weight: 300;
-  font-size: 1.7em;
-`;
-
-function EventsPage(/* props */) {
+function EventsPage() {
   const [data, setData] = useState([]);
+  const show = false;
 
   useEffect(() => {
     async function fetch() {
@@ -55,7 +49,7 @@ function EventsPage(/* props */) {
     <Wrapper>
       <Title text="UPCOMING EVENTS" />
       <EventList>
-        {data.length >= 1 ? (
+        {show && data.length >= 1 ? (
           <Anime
             opacity={[0, 1]}
             key={Date.now()}
@@ -67,6 +61,8 @@ function EventsPage(/* props */) {
               <div key={element}>
                 <EventCard
                   title={element.title}
+                  picture={element.picture}
+                  facebook={element.facebook}
                   description={element.description}
                   date={element.date}
                   location={element.location}
@@ -76,24 +72,19 @@ function EventsPage(/* props */) {
             ))}
           </Anime>
         ) : (
-          <Unavailable>
-            <Header> UH OH! </Header>
-            <Explanation>
-              Unfortunately we do not have any events listed right now,{' '}
-              <b>sorry!</b>
-            </Explanation>
-          </Unavailable>
+          <Anime
+            opacity={[0, 1]}
+            key={Date.now()}
+            easing="easeInOutSine"
+            duration={2500}
+            loop
+          >
+            <Placeholder src="event-loading.svg" />
+          </Anime>
         )}
       </EventList>
     </Wrapper>
   );
 }
 
-/*
-EventsPage.propTypes = {
-  firebase: PropTypes.object.isRequired,
-};
-*/
-
-// export default withFirebase(EventsPage);
 export default EventsPage;
