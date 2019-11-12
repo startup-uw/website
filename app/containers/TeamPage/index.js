@@ -5,6 +5,7 @@ import Axios from 'axios';
 import Title from '../../components/page/Title';
 import ProfileCard from '../../components/team/ProfileCard';
 import { Wrapper } from '../../components/page/Wrapper';
+import API from '../../endpoints';
 
 const ProfileView = styled.div`
   display: flex;
@@ -28,7 +29,7 @@ function TeamPage(/* props */) {
   useEffect(() => {
     async function fetch() {
       const result = await Axios({
-        url: 'https://us-central1-startupuwrso.cloudfunctions.net/getTeam',
+        url: API.GET_TEAM,
         method: 'get',
       }).then(res => res.data);
       setData(result);

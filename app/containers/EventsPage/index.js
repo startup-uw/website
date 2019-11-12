@@ -6,6 +6,7 @@ import Moment from 'moment';
 import { Wrapper } from '../../components/page/Wrapper';
 import Title from '../../components/page/Title';
 import EventCard from '../../components/events/EventCard/Loadable';
+import API from '../../endpoints';
 
 const EventList = styled.div`
   display: flex;
@@ -32,7 +33,7 @@ function EventsPage() {
   useEffect(() => {
     async function fetch() {
       const result = await Axios({
-        url: 'https://us-central1-startupuwrso.cloudfunctions.net/getEvents',
+        url: API.GET_EVENTS,
         method: 'get',
       }).then(res =>
         res.data.sort(
