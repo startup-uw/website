@@ -28,7 +28,6 @@ const Placeholder = styled.img`
 
 function EventsPage() {
   const [data, setData] = useState([]);
-  const show = false;
 
   useEffect(() => {
     async function fetch() {
@@ -50,7 +49,7 @@ function EventsPage() {
     <Wrapper>
       <Title text="UPCOMING EVENTS" />
       <EventList>
-        {show && data.length >= 1 ? (
+        {data.length >= 1 ? (
           <Anime
             opacity={[0, 1]}
             key={Date.now()}

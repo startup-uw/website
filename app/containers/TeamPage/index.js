@@ -24,7 +24,6 @@ const Placeholder = styled.img`
 
 function TeamPage(/* props */) {
   const [data, setData] = useState([]);
-  const show = false;
 
   useEffect(() => {
     async function fetch() {
@@ -41,7 +40,7 @@ function TeamPage(/* props */) {
     <Wrapper>
       <Title text="THE TEAM" />
       <ProfileView>
-        {show && data != null && data.length > 0 ? (
+        {data != null && data.length > 0 ? (
           <Anime
             opacity={[0, 1]}
             key={Date.now()}
