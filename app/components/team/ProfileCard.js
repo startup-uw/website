@@ -39,12 +39,44 @@ const Position = styled.h3`
   font-weight: 300;
 `;
 
+const Links = styled.div`
+  margin-top: 3px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+const Mail = styled.img`
+  height: 20px;
+  width: auto;
+  margin: 3px;
+`;
+
+const LinkedIn = styled.img`
+  height: 13px;
+  margin: 3px 3px 5px 6px;
+  width: auto;
+`;
+
 export default function ProfileCard(props) {
   return (
     <Card>
       <ProfileImage src={props.picture} />
       <Name> {props.name} </Name>
       <Position> {props.position} </Position>
+      <Links>
+        {props.email.indexOf('@') !== -1 ? (
+          <a href={`mailto:${props.email}`} target="_blank">
+            <Mail src="/mail.svg" alt="Mail" />
+          </a>
+        ) : null}
+
+        {props.linkedin !== '...' ? (
+          <a href={props.linkedin} target="_blank">
+            <LinkedIn src="/linkedin.svg" alt="LinkedIn" />
+          </a>
+        ) : null}
+      </Links>
     </Card>
   );
 }
@@ -53,4 +85,6 @@ ProfileCard.propTypes = {
   name: PropTypes.string.isRequired,
   position: PropTypes.string.isRequired,
   picture: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  linkedin: PropTypes.string.isRequired,
 };

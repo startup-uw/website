@@ -54,6 +54,8 @@ function TeamPage(/* props */) {
                   name={element.name}
                   position={element.position}
                   picture={element.photo}
+                  email={element.email}
+                  linkedin={element.linkedin}
                 />
               </div>
             ))}
